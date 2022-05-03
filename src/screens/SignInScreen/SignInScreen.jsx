@@ -32,9 +32,9 @@ const SignInScreen = () => {
         <CustomButton text= "SignIn" onPress= {handleSubmit}  type="PRIMARY"/>
         <CustomButton text= "ForgetPassword" onPress= {forgetPassword}  type="TERTIARY"/>
         <CustomButton text= "Facebook" onPress= {facebook}  type="PRIMARY" bgColor="#E7EAF4" ftColor="#4765A9"/>
-        <CustomButton text= "Google" onPress= {google}  type="PRIMARY" bgColor="#FAE9EA" ftColor="#"/>
-        <CustomButton text= "Apple" onPress= {apple}  type="PRIMARY" bgColor="#e3e3e3" ftColor="#363636"/>
-DD4D44
+        <CustomButton text= "Google" onPress= {google}  type="PRIMARY" bgColor="#FAE9EA" ftColor="#DD4D44"/>
+        <CustomButton text= "Apple" onPress= {apple}  type="PRIMARY" bgColor="#e3e3e3" ftColor="#DD4D44"/>
+
         </View>
   )
 }
