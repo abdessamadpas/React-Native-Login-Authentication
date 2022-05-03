@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "React-Native-Login-Authentication",
+    "slug": "React-Native-Login-Authentication",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "React-Native-Login-Authentication"
+}
