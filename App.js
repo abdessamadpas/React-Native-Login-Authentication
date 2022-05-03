@@ -1,18 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, SafeAreaView} from 'react-native';
-import SignInScreen from './src/screens/SignInScreen/SignInScreen';
+import Navigation from './src/navigation';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.root}>
-      <SignInScreen/>
+      <Navigation/>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-   // flex: 1,
+  root: {
+    flex: 1,
+    backgroundColor:'#F9FBFC'
  
   },
 });

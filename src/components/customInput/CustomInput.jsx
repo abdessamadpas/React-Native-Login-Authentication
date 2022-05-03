@@ -20,15 +20,17 @@ export default CustomInput
 const styles = StyleSheet.create({
     container: {
         width:'100%',
+        height: 40,
         backgroundColor:'white',
         borderColor:'#e8e8e8',
-        borderRadius:5,
+        borderRadius:10,
         borderWidth: 1,
         paddingHorizontal:  10,
-        marginVertical: 10
+        marginVertical: 5,
+        justifyContent: 'center'
         
     },
     input: {
-
+        fontSize: 17
     }
 })
