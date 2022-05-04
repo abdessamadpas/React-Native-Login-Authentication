@@ -2,16 +2,24 @@ import { View, Text, Image, StyleSheet, useWindowDimensions, ScrollView} from 'r
 import React,{useState} from 'react'
 import CustomInput from '../../components/customInput/CustomInput'
 import CustomButton from '../../components/customButton/CustomButton'
+import { useNavigation } from '@react-navigation/native'
 
 const SignInScreen = () => {
+
     const {height} = useWindowDimensions()
     const [username, setUsername] = useState(null)
     const [password, setPassword] = useState(null)
+    
+    const navigation = useNavigation()
+
     const handleSubmit=()=>{
-        console.warn('submites')
+      //  console.warn('submites')
+        navigation.navigate("Home")
     }
     const forgetPassword=()=>{
-        console.warn('forgetPassword')
+       // console.warn('forgetPassword')
+       navigation.navigate("ForgotPasswordScreen")
+
     }
     const facebook=()=>{
         console.warn('facebook')
@@ -23,8 +31,10 @@ const SignInScreen = () => {
         console.warn('apple')
     }
     const singup=()=>{
-        console.warn('singup')
+        //console.warn('singup')
+        navigation.navigate("SignUpScreen")
     }
+
     
   return (
     <ScrollView showsVerticalScrollIndicator= {false}> 
