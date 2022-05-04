@@ -1,12 +1,24 @@
-import { View, Text } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet } from 'react-native'
 import React from 'react'
 
 const Home = () => {
   return (
-    <View>
-      <Text>HomeHomeHomeHomeHomeHomeHomeHomeHomeHomeHomeHomeHomeHomeHomeHomeHomeHome</Text>
-    </View>
+    <SafeAreaView>
+      <View style={styles.container}>
+        <Text>Home sweet, Home</Text>
+      </View>
+    </SafeAreaView>
+   
   )
 }
 
 export default Home
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100%'
+    
+  }
+})

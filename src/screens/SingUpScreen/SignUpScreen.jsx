@@ -1,16 +1,16 @@
 import { View, Text,StyleSheet, useWindowDimensions, ScrollView} from 'react-native'
 import CustomInput from '../../components/customInput/CustomInput'
 import CustomButton from '../../components/customButton/CustomButton'
-import React,{useState} from 'react'
+import React from 'react'
+import { useForm } from 'react-hook-form'
 
 const SignUpScreen = () => {
-    const {height} = useWindowDimensions()
-    const [username, setUsername] = useState(null)
-    const [email, setEmail] = useState(null)
-    const [confirmPassword, setConfirmPassword] = useState(null)
-    const [password, setPassword] = useState(null)
-    const handleSubmit=()=>{
-        console.warn('submites')
+    const {control, handleSubmit, formState:{errors}, watch}= useForm()
+
+    const pwd = watch('password')
+    const handleSubmi=(data)=>{
+        console.warn(data)
+
     }
     const forgetPassword=()=>{
         console.warn('forgetPassword')
@@ -34,11 +34,32 @@ const SignUpScreen = () => {
     <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
             <Text style={styles.title}> Create an account</Text>
-            <CustomInput value= {username} setValue= {setUsername} secureTextEntry= {false} placeholder= 'Username'/>
-            <CustomInput value= {email} setValue= {setEmail} secureTextEntry= {false} placeholder= 'Email'/>
-            <CustomInput value= {password} setValue= {setPassword} secureTextEntry= {true} placeholder= 'Password'/>
-            <CustomInput value= {confirmPassword} setValue= {setConfirmPassword} secureTextEntry= {true} placeholder= 'confirmPassword'/>
-            <CustomButton text= "SignIn" onPress= {handleSubmit}  type="PRIMARY"/>
+
+            <CustomInput
+                name='Username'
+                required={{required:'required user'}}
+                control={control}
+                secureTextEntry= {false} 
+                placeholder= 'Username'/>
+            <CustomInput 
+            name='email'
+            required={{required:'required email'}}
+            control={control}
+            secureTextEntry= {false} placeholder= 'Email'/>
+            <CustomInput 
+            name='password'
+            required={{required:'required password'}}
+            control={control}
+             secureTextEntry= {true} placeholder= 'Password'/>
+            <CustomInput
+            name='confirmPassword'
+            required={{
+               
+                validate: value=> value ===  pwd || '3awd ktabo mgad azbi'
+        }}
+            control={control}
+             secureTextEntry= {true} placeholder= 'confirmPassword'/>
+            <CustomButton text= "SignIn" onPress= {handleSubmit(handleSubmi)}  type="PRIMARY"/>
             <Text style={styles.text}>I am currently using ES6 in an React app via{' '}
              <Text style={styles.link} onPress={policy}> wew</Text> babel.
              <Text style={styles.link}onPress={policy}> wew</Text> babel.
