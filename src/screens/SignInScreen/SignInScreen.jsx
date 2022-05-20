@@ -12,7 +12,7 @@ import { collection, getDocs } from 'firebase/firestore/lite';
 //firebase 
 import { createUserWithEmailAndPassword,  } from 'firebase/auth'
 const SignInScreen = () => {
-    const [email, setEmail] = useState("")
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     // firebase 
    

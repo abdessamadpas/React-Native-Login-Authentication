@@ -2,11 +2,17 @@ import { View, Text,StyleSheet, useWindowDimensions, ScrollView} from 'react-nat
 import CustomInput from '../../components/customInput/CustomInput'
 import CustomButton from '../../components/customButton/CustomButton'
 import React,{useState} from 'react'
+import { useForm } from 'react-hook-form'
+
+import { useNavigation } from '@react-navigation/native'
 
 
 const ForgotPasswordScreen = () => {
 
-    const [codeConfirm, setCodeConfirm] = useState(null)
+
+    const [codeConfirm, setCodeConfirm] = useState("")
+    const navigation = useNavigation()
+
     const codeConfirming=()=>{
         console.warn('codeConfirming')
     }
@@ -15,12 +21,22 @@ const ForgotPasswordScreen = () => {
     }
      const backToSignIn=()=>{
         console.warn('backToSignIn')
+        navigation.navigate("SignInScreen")
+
     }
+
+    const {control, handleSubmit, formState: {errors}} = useForm()
+
+
 
   return (
     <View style={[styles.container]}>
         <Text style={styles.title}> Rest your password</Text>
-        <CustomInput value= {codeConfirm} setValue= {setCodeConfirm} secureTextEntry= {false} placeholder= 'Username'/>
+        <CustomInput 
+        name= "resr" 
+        
+        control={control}
+        value= {codeConfirm} setValue= {setCodeConfirm} secureTextEntry= {false} placeholder= 'Username'/>
         <CustomButton text= "Send" onPress= {codeConfirming}  type="PRIMARY"/>
         <CustomButton text= "Back to signIn" onPress= {backToSignIn}  type="TERTIARY"/>
     </View>
