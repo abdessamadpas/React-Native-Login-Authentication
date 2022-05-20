@@ -1,7 +1,10 @@
+import React,{useState} from 'react'
+
 import { View, Text,StyleSheet, useWindowDimensions, ScrollView} from 'react-native'
 import CustomInput from '../../components/customInput/CustomInput'
 import CustomButton from '../../components/customButton/CustomButton'
-import React,{useState} from 'react'
+import { useNavigation } from '@react-navigation/native'
+
 
 const ConfirmEmailScreen = () => {
     
@@ -18,7 +21,7 @@ const ConfirmEmailScreen = () => {
   return (
       
     <View style={[styles.container]}>
-        <Text style={styles.title}> Confirm email</Text>
+        <Text style={styles.title}> Confirm email </Text>
         <CustomInput value= {codeConfirm} setValue= {setCodeConfirm} secureTextEntry= {false} placeholder= 'Username'/>
         <CustomButton text= "confirm" onPress= {codeConfirming}  type="PRIMARY"/>
         <CustomButton text= "resend code" onPress= {resendCode}  type="SECONDARY"/>

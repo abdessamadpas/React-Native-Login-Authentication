@@ -24,7 +24,7 @@ const CustomInput = ({name,control, required, placeholder,secureTextEntry}) => {
               style={[styles.input]}
             />
           </View>
-          {error && <Text>{error.message || 'error bitch'}</Text> }
+          {error && <Text>{error.message || 'error bitch'}</Text> } 
           </>
        )} 
       />

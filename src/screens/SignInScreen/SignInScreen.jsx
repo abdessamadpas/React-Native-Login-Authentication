@@ -4,17 +4,32 @@ import CustomInput from '../../components/customInput/CustomInput'
 import CustomButton from '../../components/customButton/CustomButton'
 import { useNavigation } from '@react-navigation/native'
 import { useForm } from 'react-hook-form'
+import {authentification} from '../../../firebase/firebase-config'
+import { db } from '../../../firebase/firebase-config'
+import { collection, getDocs } from 'firebase/firestore/lite';
 
+
+//firebase 
+import { createUserWithEmailAndPassword,  } from 'firebase/auth'
 const SignInScreen = () => {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState('')
+    // firebase 
+   
     const {control, handleSubmit, formState: {errors}} = useForm()
-    console.log(errors);
+  //  console.log(errors);
     const {height} = useWindowDimensions()
     const navigation = useNavigation()
 
-    const handleSubmi=(data)=>{
-        console.warn(data)
-        navigation.navigate("Home")
+    const handleSubmi=()=>{
+        
+        createUserWithEmailAndPassword(authentification, email, password)
+        .then(res=> {
+            console.log(res);
+        })
+        .catch((error)=> console.log(error.message))
     }
+    
     const forgetPassword=()=>{
        // console.warn('forgetPassword')
        navigation.navigate("ForgotPasswordScreen")
@@ -38,14 +53,14 @@ const SignInScreen = () => {
     <ScrollView showsVerticalScrollIndicator= {false}> 
         <View style={styles.root}>
             <Image source={require('../../../assets/images/logo-dev.png')}
-                style={[styles.logo, {resizeMode: 'contain', height: height*0.7}]} />
+                style={[styles.logo, {resizeMode: 'contain', height: height*0.9}]} />
 
             <CustomInput 
-                name="username"
+                name="email"
                 secureTextEntry= {false}
-                placeholder= 'Username'
+                placeholder= 'email'
                 control={control}
-                required={{required:'username require',
+                required={{required:'email require',
                  minLength:{
                      value:5,
                     message:'more than 5 caracters'
@@ -56,7 +71,17 @@ const SignInScreen = () => {
                 secureTextEntry= {true} 
                 placeholder= 'Password'
                 control={control}
-                required={true}
+                required={{
+                    required: 'password require',
+                    minLength:{
+                        value: 4,
+                        message: 'you more than 4'
+                    },
+                    minLength:{
+                        value: 4,
+                        message: 'you more than 4'
+                    }
+                }}
             />
 
             <CustomButton text= "SignIn" onPress= { handleSubmit(handleSubmi)}  type="PRIMARY"/>
@@ -77,11 +102,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#f8f8f8',
         height: '100%',
         paddingHorizontal:20,
-        maxHeight:700
+       
     },
     logo: {
         width:  '100%',
-        maxWidth: 500,
+        minWidth: 500,
         maxHeight: 200,
         
     }

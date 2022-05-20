@@ -1,7 +1,8 @@
+import React,{useState} from 'react'
 import { View, Text,StyleSheet, useWindowDimensions, ScrollView} from 'react-native'
 import CustomInput from '../../components/customInput/CustomInput'
 import CustomButton from '../../components/customButton/CustomButton'
-import React,{useState} from 'react'
+
 
 
 const NewPasswordScreen = () => {
@@ -21,7 +22,6 @@ const NewPasswordScreen = () => {
     <View style={[styles.container]}>
         <Text style={styles.title}> Rest your password</Text>
         <CustomInput value= {codeConfirm} setValue= {setCodeConfirm} secureTextEntry= {false} placeholder= 'Confirmation code'/>
-        <CustomInput value= {codeConfirm} setValue= {setCodeConfirm} secureTextEntry= {false} placeholder= 'Enter your new password'/>
         <CustomButton text= "Submit" onPress= {codeConfirming}  type="PRIMARY"/>
         <CustomButton text= "Back to signIn" onPress= {backToSignIn}  type="TERTIARY"/>
     </View>

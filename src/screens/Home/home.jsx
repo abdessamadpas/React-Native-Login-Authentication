@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <Text>Home sweet, Home</Text>
+        <Text>  to the navigation   </Text>
       </View>
     </SafeAreaView>
    
@@ -21,4 +21,4 @@ const styles = StyleSheet.create({
     height: '100%'
     
   }
-})
+})  

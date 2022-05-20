@@ -2,6 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, SafeAreaView} from 'react-native';
 import Navigation from './src/navigation';
 
+import  ForgotPasswordScreen from './src/screens/ForgotPasswordScreen/ForgotPasswordScreen';
+
+
+
 export default function App() {
   return (
     <SafeAreaView style={styles.root}>

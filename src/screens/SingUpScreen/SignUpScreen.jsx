@@ -1,22 +1,31 @@
+import React from 'react'
 import { View, Text,StyleSheet, useWindowDimensions, ScrollView} from 'react-native'
 import CustomInput from '../../components/customInput/CustomInput'
 import CustomButton from '../../components/customButton/CustomButton'
-import React from 'react'
+import { useNavigation } from '@react-navigation/native'
+
 import { useForm } from 'react-hook-form'
 
 const SignUpScreen = () => {
+    const navigation = useNavigation()
     const {control, handleSubmit, formState:{errors}, watch}= useForm()
 
+  
     const pwd = watch('password')
     const handleSubmi=(data)=>{
         console.warn(data)
-
+        //console.log(data);
+        
+        navigation.navigate("Home")
     }
+
     const forgetPassword=()=>{
         console.warn('forgetPassword')
     }
-    const facebook=()=>{
-        console.warn('facebook')
+
+    const SignIn=()=>{
+        console.warn('you redirected to Sign In ')
+        navigation.navigate("SignInScreen")
     }
     const google=()=>{
         console.warn('google')
@@ -55,7 +64,7 @@ const SignUpScreen = () => {
             name='confirmPassword'
             required={{
                
-                validate: value=> value ===  pwd || '3awd ktabo mgad azbi'
+                validate: value=> value ===  pwd || 'confirm the password'
         }}
             control={control}
              secureTextEntry= {true} placeholder= 'confirmPassword'/>
@@ -65,7 +74,7 @@ const SignUpScreen = () => {
              <Text style={styles.link}onPress={policy}> wew</Text> babel.
              I am using index files to 
             </Text>
-            <CustomButton text= "Sign In With Facebook" onPress= {facebook}  type="PRIMARY" bgColor="#E7EAF4" ftColor="#4765A9"/>
+            <CustomButton text= "you alredy have an account, Sign In" onPress= {SignIn}  type="PRIMARY" bgColor="#E7EAF4" ftColor="#4765A9"/>
             <CustomButton text= "Sign In With Google" onPress= {google}  type="PRIMARY" bgColor="#FAE9EA" ftColor="#DD4D44"/>
             <CustomButton text= "Sign In With Apple" onPress= {apple}  type="PRIMARY" bgColor="#e3e3e3" ftColor="#DD4D44"/>
         </View>
